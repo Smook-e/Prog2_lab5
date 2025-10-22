@@ -33,9 +33,10 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        login.setBackground(new java.awt.Color(0, 255, 0));
-        login.setForeground(new java.awt.Color(255, 51, 51));
-        login.setLabel("login");
+        login.setBackground(new java.awt.Color(0, 153, 0));
+        login.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        login.setForeground(new java.awt.Color(255, 255, 255));
+        login.setLabel("Login");
         login.setName("login"); // NOI18N
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

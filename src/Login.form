@@ -74,12 +74,15 @@
     <Component class="java.awt.Button" name="login">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="ff" red="0" type="rgb"/>
+          <Color blue="0" green="99" red="0" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="18" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="33" green="33" red="ff" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
-        <Property name="label" type="java.lang.String" value="login"/>
+        <Property name="label" type="java.lang.String" value="Login"/>
         <Property name="name" type="java.lang.String" value="login" noResource="true"/>
       </Properties>
       <Events>
