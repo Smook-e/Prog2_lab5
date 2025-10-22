@@ -1,5 +1,4 @@
 
-
 import javax.swing.JOptionPane;
 
 /**
@@ -7,7 +6,7 @@ import javax.swing.JOptionPane;
  * @author Mega Store
  */
 public class Login extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Login.class.getName());
 
     /**
@@ -110,12 +109,12 @@ public class Login extends javax.swing.JFrame {
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         String username = jTextField1.getText();
         String password = jPasswordField1.getText();
-        if(username.equals("youssef")&&password.equals("youssef"))
-        {
-            JOptionPane.showMessageDialog(null, "You are accessed");
-        }
-        else
-        {
+        if (username.equals("youssef") && password.equals("youssef")) {
+            JOptionPane.showMessageDialog(null, "Welcome to homepage", "WelcomeMassage", JOptionPane.OK_CANCEL_OPTION);
+            //HomePage h = new HomePage();
+            //h.setVisible(true);
+            this.setVisible(false);
+        } else {
             JOptionPane.showMessageDialog(null, "Error", "ErrorMassage", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_loginActionPerformed
