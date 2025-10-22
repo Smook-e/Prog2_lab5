@@ -112,6 +112,7 @@ public class Login extends javax.swing.JFrame {
         if (username.equals("youssef") && password.equals("youssef")) {
             HomePage h = new HomePage();
             h.setVisible(true);
+            h.setLocationRelativeTo(null);// to make the frame in the middle of page
             this.setVisible(false);
         } else {
             JOptionPane.showMessageDialog(null, "Error", "ErrorMassage", JOptionPane.ERROR_MESSAGE);
@@ -144,7 +145,9 @@ public class Login extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Login().setVisible(true));
+        Login l = new Login();
+        java.awt.EventQueue.invokeLater(() -> l.setVisible(true));
+        l.setLocationRelativeTo(null);// to make it in the middle of page
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
