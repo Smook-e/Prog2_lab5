@@ -115,8 +115,20 @@ public class Login extends javax.swing.JFrame {
             h.setVisible(true);
             h.setLocationRelativeTo(null);// to make the frame in the middle of page
             this.setVisible(false);
-        } else {
-            JOptionPane.showMessageDialog(null, "Error", "ErrorMassage", JOptionPane.ERROR_MESSAGE);
+        } 
+        else if(username.equals("youssef") || password.equals("youssef")) {
+            if(!username.equals("youssef"))
+            {
+                JOptionPane.showMessageDialog(null,"Invalid username","Error",JOptionPane.ERROR_MESSAGE);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null,"Invalid password","Error",JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null,"Invalid username and password","Error",JOptionPane.ERROR_MESSAGE);         
         }
     }//GEN-LAST:event_loginActionPerformed
 
