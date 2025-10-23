@@ -1,4 +1,5 @@
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.EventObject;
 
 public class StudentDatabase extends Database {
@@ -31,6 +32,20 @@ public class StudentDatabase extends Database {
         if(containsPersonById(p.getId())){
             persons.remove(p);
             return true;
+        }
+        return false;
+    }
+
+    public boolean updatePerson(Person p){
+        for(Person p1 : persons){
+            if(p1.getId().equals(p.getId())){
+                p1.setAge(p.getAge());
+                p1.setDepartment(p.getDepartment());
+                p1.setFullName(p.getFullName());
+                p1.setGender(p.getGender());
+
+                return true;
+            }
         }
         return false;
     }
