@@ -1,6 +1,6 @@
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Collections;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -17,7 +17,7 @@ public class DeleteStudent extends javax.swing.JFrame {
      */
     public DeleteStudent() {
         initComponents();
-        // loadingStudent();
+        loadingStudent();
     }
 
     /**
@@ -44,7 +44,7 @@ public class DeleteStudent extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -93,25 +93,49 @@ public class DeleteStudent extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-   // public void loadingStudent() {
-    //  }
-    ArrayList<Integer> selectedRow = new ArrayList<>();
-
+    public void loadingStudent(){
+       try{StudentDatabase dp = new StudentDatabase("C:\\Users\\Mega Store\\Documents\\GitHub\\Prog2_lab5\\Files\\Students.txt");
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        ArrayList<Person> students = dp.getPersons();
+        for (Person person : students) {
+            if (person instanceof Student) {
+                Student student = (Student) person;
+                model.addRow(new Object[]{
+                    student.getId(),
+                    student.getFullName(),
+                    student.getAge(),
+                    student.getGender(),
+                    student.getDepartment(),
+                    student.getGpa()
+                });
+            }
+        }}
+        catch(FileNotFoundException e){
+            JOptionPane.showMessageDialog(null, "file not found!");
+        }
+    }
+    int clickedRow = -1;
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        selectedRow.add(jTable1.getSelectedRow());
+        clickedRow = jTable1.getSelectedRow();
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        if (selectedRow.isEmpty()) {
+        if (clickedRow==-1) {
             JOptionPane.showMessageDialog(null, "non selected items", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
-            selectedRow.sort(Collections.reverseOrder());//to make it in desending order
-            for (int k : selectedRow) {
-                model.removeRow(k);
+            try {
+                String StudentId = (String) model.getValueAt(clickedRow,0);
+                Person p;
+                StudentDatabase dp = new StudentDatabase("C:\\Users\\Mega Store\\Documents\\GitHub\\Prog2_lab5\\Files\\Students.txt");
+                p = dp.getPersonById(StudentId);
+                dp.removePerson(p);
+                model.removeRow(clickedRow);
+                JOptionPane.showMessageDialog(null, "Student Removed");
+                clickedRow = -1;
+            } catch (FileNotFoundException e) {
+                JOptionPane.showMessageDialog(null, "file not found!");
             }
-            selectedRow.clear();
-            JOptionPane.showConfirmDialog(null, "the items are deleted");
         }
     }//GEN-LAST:event_button1ActionPerformed
 

@@ -1,4 +1,3 @@
-
 import javax.swing.*;
 
 /**
@@ -127,7 +126,7 @@ public class HomePage extends javax.swing.JFrame {
         DeleteStudent delete = new DeleteStudent();
         delete.setVisible(true);
         delete.setLocationRelativeTo(null);// to make the frame in the middle of page
-        this.setVisible(false);
+        this.setVisible(false);    
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
