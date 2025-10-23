@@ -66,5 +66,7 @@ public abstract class Database {
             System.out.println("Error writing file :  " + fileName);
         }
     }
+    public abstract boolean addPerson(Person p);
+    public abstract boolean removePerson(Person p);
 
 }

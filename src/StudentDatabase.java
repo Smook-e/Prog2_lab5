@@ -1,3 +1,5 @@
+import java.util.EventObject;
+
 public class StudentDatabase extends Database {
 
 
@@ -12,5 +14,23 @@ public class StudentDatabase extends Database {
         student = new Student(fields[0], fields[1], fields[2], Integer.parseInt(fields[3]), fields[4], Double.parseDouble(fields[5]));
         return student;
 
+    }
+
+    @Override
+    public boolean addPerson(Person p) {
+        if(!containsPersonById(p.getId())){
+            persons.add(p);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean removePerson(Person p) {
+        if(containsPersonById(p.getId())){
+            persons.remove(p);
+            return true;
+        }
+        return false;
     }
 }
