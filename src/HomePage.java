@@ -1,3 +1,4 @@
+import javax.swing.*;
 
 /**
  *
@@ -6,6 +7,7 @@
 public class HomePage extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(HomePage.class.getName());
+    private JPanel panel1;
 
     /**
      * Creates new form HomePage
