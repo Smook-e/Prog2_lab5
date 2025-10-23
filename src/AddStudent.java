@@ -1,10 +1,13 @@
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -20,6 +23,11 @@ public class AddStudent extends AddAndUpdatePanel{
     public AddStudent()
     {
         super();
+        try {
+            sDatabase = new StudentDatabase("C:\\Users\\HP\\OneDrive\\Documents\\GitHub\\Prog2_lab5\\Files\\Students.txt");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(AddStudent.class.getName()).log(Level.SEVERE, null, ex);
+        }
         save.addActionListener(
                 new ActionListener(){
                     @Override
@@ -48,4 +56,25 @@ public class AddStudent extends AddAndUpdatePanel{
                     });
     }
     
+}
+class Main {
+    public static void main(String[] args) {
+        // Make sure GUI creation is done on the Event Dispatch Thread
+        SwingUtilities.invokeLater(() -> {
+            JFrame frame = new JFrame("Add Student");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            
+            // Create your AddStudent panel
+            AddStudent addStudentPanel = null;
+            addStudentPanel = new AddStudent();
+            
+            // Add the panel to the frame
+            frame.getContentPane().add(addStudentPanel);
+            
+            // Set frame size (adjust as needed)
+            frame.pack();
+            frame.setLocationRelativeTo(null); // Center on screen
+            frame.setVisible(true);
+});
+}
 }
