@@ -1,5 +1,6 @@
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -130,11 +131,14 @@ public class DeleteStudent extends javax.swing.JFrame {
                 StudentDatabase dp = new StudentDatabase("C:\\Users\\Mega Store\\Documents\\GitHub\\Prog2_lab5\\Files\\Students.txt");
                 p = dp.getPersonById(StudentId);
                 dp.removePerson(p);
+                dp.saveToFile();
                 model.removeRow(clickedRow);
                 JOptionPane.showMessageDialog(null, "Student Removed");
                 clickedRow = -1;
             } catch (FileNotFoundException e) {
                 JOptionPane.showMessageDialog(null, "file not found!");
+            } catch (IOException e) {
+                 JOptionPane.showMessageDialog(null, "Error(IOException)!");
             }
         }
     }//GEN-LAST:event_button1ActionPerformed
