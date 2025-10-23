@@ -115,25 +115,17 @@ public class Login extends javax.swing.JFrame {
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         String username = jTextField1.getText();
         String password = jPasswordField1.getText();
-        if (username.equals("youssef") && password.equals("youssef")) {
+        LoginUsers loginUsers = new LoginUsers("Files\\Users.txt");
+        if (loginUsers.userExists(username+','+password)) {
             HomePage h = new HomePage();
             h.setVisible(true);
             h.setLocationRelativeTo(null);// to make the frame in the middle of page
             this.setVisible(false);
         } 
-        else if(username.equals("youssef") || password.equals("youssef")) {
-            if(!username.equals("youssef"))
-            {
-                JOptionPane.showMessageDialog(null,"Invalid username","Error",JOptionPane.ERROR_MESSAGE);
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(null,"Invalid password","Error",JOptionPane.ERROR_MESSAGE);
-            }
-        }
+
         else
         {
-            JOptionPane.showMessageDialog(null,"Invalid username and password","Error",JOptionPane.ERROR_MESSAGE);         
+            JOptionPane.showMessageDialog(null,"Invalid username or password","Error",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_loginActionPerformed
 
