@@ -5,14 +5,15 @@ public abstract class Database {
     protected ArrayList<Person> persons = new ArrayList<>();
     protected String fileName;
 
-    public Database(String fileName) {
+    public Database(String fileName) throws FileNotFoundException {
         this.fileName = fileName;
+        this.readFile();
     }
     public ArrayList<Person> getPersons() {
         return persons;
     }
     public abstract Person createRecordFrom(String s);
-    public void readFile() throws FileNotFoundException {
+    public void readFile(){
         try(BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String line;
             if(!persons.isEmpty()) {
@@ -25,7 +26,11 @@ public abstract class Database {
                 }
 
             }
-        } catch (IOException e) {
+        }
+        catch(FileNotFoundException e) {
+            System.out.println("File not found");
+        }
+        catch (IOException e) {
             System.out.println("Error reading file " + fileName);
             throw new RuntimeException(e);
 

@@ -45,7 +45,7 @@ public abstract class Person {
 
     @Override
     public String toString() {
-        return fullName + " " + gender + " " + age + " " + department  ;
+        return fullName + "," + gender + "," + age + "," + department  ;
     }
     public abstract String getId();
     public String getName(){

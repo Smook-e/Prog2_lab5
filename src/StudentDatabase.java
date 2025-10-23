@@ -1,9 +1,10 @@
+import java.io.FileNotFoundException;
 import java.util.EventObject;
 
 public class StudentDatabase extends Database {
 
 
-    public StudentDatabase(String fileName) {
+    public StudentDatabase(String fileName) throws FileNotFoundException {
         super(fileName);
     }
 
