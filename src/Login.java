@@ -1,5 +1,5 @@
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 /**
  *
@@ -8,6 +8,11 @@ import javax.swing.JOptionPane;
 public class Login extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Login.class.getName());
+    private JPanel panel1;
+    private JButton button1;
+    private JButton button2;
+    private JButton button3;
+    private JButton button4;
 
     /**
      * Creates new form Login
