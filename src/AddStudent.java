@@ -57,24 +57,3 @@ public class AddStudent extends AddAndUpdatePanel{
     }
     
 }
-class Main {
-    public static void main(String[] args) {
-        // Make sure GUI creation is done on the Event Dispatch Thread
-        SwingUtilities.invokeLater(() -> {
-            JFrame frame = new JFrame("Add Student");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            
-            // Create your AddStudent panel
-            AddStudent addStudentPanel = null;
-            addStudentPanel = new AddStudent();
-            
-            // Add the panel to the frame
-            frame.getContentPane().add(addStudentPanel);
-            
-            // Set frame size (adjust as needed)
-            frame.pack();
-            frame.setLocationRelativeTo(null); // Center on screen
-            frame.setVisible(true);
-});
-}
-}
