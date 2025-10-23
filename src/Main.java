@@ -3,14 +3,14 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Student student1 = new Student("10345", "Maged", "Male", 22, "Business", 3.0);
+        Student student1 = new Student( "Malak", "Female", 20, "Medical", 3.1);
 
-        StudentDatabase database = new StudentDatabase("C:\\Users\\Mega Store\\Documents\\GitHub\\Prog2_lab5\\Files\\Students.txt");
+        StudentDatabase database = new StudentDatabase("Files\\Students.txt");
 
         
 
         ArrayList<Person> persons = database.getPersons();
-        System.out.println(database.updatePerson(student1));
+        System.out.println(database.addPerson(student1));
         for (Person p : persons) {
             System.out.println(p);
         }

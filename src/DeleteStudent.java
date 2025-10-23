@@ -95,7 +95,7 @@ public class DeleteStudent extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     public void loadingStudent(){
-       try{StudentDatabase dp = new StudentDatabase("C:\\Users\\Mega Store\\Documents\\GitHub\\Prog2_lab5\\Files\\Students.txt");
+       try{StudentDatabase dp = new StudentDatabase("Files\\Students.txt");
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         ArrayList<Person> students = dp.getPersons();
         for (Person person : students) {
@@ -128,7 +128,7 @@ public class DeleteStudent extends javax.swing.JFrame {
             try {
                 String StudentId = (String) model.getValueAt(clickedRow,0);
                 Person p;
-                StudentDatabase dp = new StudentDatabase("C:\\Users\\Mega Store\\Documents\\GitHub\\Prog2_lab5\\Files\\Students.txt");
+                StudentDatabase dp = new StudentDatabase("Files\\Students.txt");
                 p = dp.getPersonById(StudentId);
                 dp.removePerson(p);
                 dp.saveToFile();
