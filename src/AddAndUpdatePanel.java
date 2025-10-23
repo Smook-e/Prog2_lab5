@@ -61,7 +61,40 @@ public class AddAndUpdatePanel extends JPanel {
                         validate();
                     }
     });}
-     
+    private void validateInput()
+    {
+        if(id.getText().isEmpty()||name.getText().isEmpty()||department.getText().isEmpty()
+                ||GPA.getText().isEmpty()||((!male.isSelected())&&(!female.isSelected())))
+        {
+            JOptionPane.showMessageDialog(null,"Please fill all form!","Error",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        try
+        {
+            int numID=Integer.parseInt(id.getText());
+            int numAge=Integer.parseInt(age.getText());
+            if((numAge<11)||(numAge>100))
+            {
+                throw new IllegalArgumentException("Age must be between 11 and 100!"); 
+            }
+            double numGPA=Double.parseDouble(GPA.getText());
+            if((numGPA<0.0||numGPA>4.0))
+            {
+                throw new IllegalArgumentException("GPA must be between 0.0 and 4.0"); 
+            }
+            
+        }catch(NumberFormatException e)
+        {
+             JOptionPane.showMessageDialog(null,"Please enter valid ID , Age and GPA !","Validation Error",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        catch(IllegalArgumentException e)
+        {
+                    JOptionPane.showMessageDialog(null,e.getMessage(),"Validation Error",JOptionPane.ERROR_MESSAGE);
+        }
+        
+        
+    }
     
     
     
