@@ -58,16 +58,16 @@ public class AddAndUpdatePanel extends JPanel {
                     @Override
                     public void actionPerformed(ActionEvent e)
                     {
-                        validate();
+                        validateInput();
                     }
     });}
-    private void validateInput()
+    private boolean validateInput()
     {
         if(id.getText().isEmpty()||name.getText().isEmpty()||department.getText().isEmpty()
                 ||GPA.getText().isEmpty()||((!male.isSelected())&&(!female.isSelected())))
         {
             JOptionPane.showMessageDialog(null,"Please fill all form!","Error",JOptionPane.ERROR_MESSAGE);
-            return;
+            return false;
         }
         try
         {
@@ -86,15 +86,25 @@ public class AddAndUpdatePanel extends JPanel {
         }catch(NumberFormatException e)
         {
              JOptionPane.showMessageDialog(null,"Please enter valid ID , Age and GPA !","Validation Error",JOptionPane.ERROR_MESSAGE);
-            return;
+            return false;
         }
         catch(IllegalArgumentException e)
         {
                     JOptionPane.showMessageDialog(null,e.getMessage(),"Validation Error",JOptionPane.ERROR_MESSAGE);
+                    return false;
         }
-        
-        
-    }
+        if(!name.getText().matches("[a-zA-Z\\s]+"))
+        {
+             JOptionPane.showMessageDialog(null,"Name must only contain letters and spaces","Validation Error",JOptionPane.ERROR_MESSAGE);   
+             return false;
+        }
+        if(!department.getText().matches("[a-zA-Z\\s]+"))
+        {
+             JOptionPane.showMessageDialog(null,"Department must only contain letters and spaces","Validation Error",JOptionPane.ERROR_MESSAGE);   
+             return false;
+        }
+        return true;
+ }
     
     
     
