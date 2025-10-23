@@ -17,7 +17,7 @@ public class AddAndUpdatePanel extends JPanel {
     private JTextField id,name,age,department,GPA;
     private ButtonGroup gender;
     private JRadioButton male,female;
-    private JButton save;
+    public JButton save;
     public AddAndUpdatePanel()
     {
         id=new JTextField(10);
@@ -53,15 +53,8 @@ public class AddAndUpdatePanel extends JPanel {
         add(new JLabel(""));
         add(new JLabel(""));
         add(save);
-        save.addActionListener(
-                new ActionListener(){
-                    @Override
-                    public void actionPerformed(ActionEvent e)
-                    {
-                        validateInput();
-                    }
-    });}
-    private boolean validateInput()
+    }
+    public boolean validateInput()
     {
         if(id.getText().isEmpty()||name.getText().isEmpty()||department.getText().isEmpty()
                 ||GPA.getText().isEmpty()||((!male.isSelected())&&(!female.isSelected())))
@@ -105,7 +98,33 @@ public class AddAndUpdatePanel extends JPanel {
         }
         return true;
  }
-    
-    
-    
+    public String getID()
+    {
+        return id.getText();
+    }
+    public String getStudentName()
+    {
+        return name.getText();
+    }
+    public String getAge()
+    {
+        return age.getText();
+    }
+    public String getGender()
+    {
+        if(male.isSelected())
+        {
+            return "male";
+        }
+        else
+            return "female";
+    }
+    public String getDepartment()
+    {
+        return department.getText();
+    }
+    public String getGPA()
+    {
+        return GPA.getText();
+    }
 }
