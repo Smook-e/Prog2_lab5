@@ -37,13 +37,15 @@ public class StudentDatabase extends Database {
     }
 
     public boolean updatePerson(Person p){
+        Student s =(Student) p;
         for(Person p1 : persons){
-            if(p1.getId().equals(p.getId())){
+            if(p1.getId().equals(s.getId())){
+                Student s1 =(Student) p1;
                 p1.setAge(p.getAge());
                 p1.setDepartment(p.getDepartment());
                 p1.setFullName(p.getFullName());
                 p1.setGender(p.getGender());
-
+                s1.setGpa(s.getGpa());
                 return true;
             }
         }
