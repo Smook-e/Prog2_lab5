@@ -5,9 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -18,15 +16,15 @@ import javax.swing.SwingUtilities;
  *
  * @author HP
  */
-public class AddStudent extends AddAndUpdatePanel{
+public class UpdateStudent extends AddAndUpdatePanel {
     private StudentDatabase sDatabase;
-    public AddStudent()
+    public UpdateStudent()
     {
         super();
         try {
-            sDatabase = new StudentDatabase("C:\\Users\\HP\\OneDrive\\Documents\\GitHub\\Prog2_lab5\\Files\\Students.txt");
+            sDatabase=new StudentDatabase("\"C:\\\\Users\\\\HP\\\\OneDrive\\\\Documents\\\\GitHub\\\\Prog2_lab5\\\\Files\\\\Students.txt\"");
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(AddStudent.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UpdateStudent.class.getName()).log(Level.SEVERE, null, ex);
         }
         save.addActionListener(
                 new ActionListener(){
@@ -37,7 +35,7 @@ public class AddStudent extends AddAndUpdatePanel{
                         {
                             Student s = new Student(getID(),getStudentName(),getGender()
                                     ,Integer.parseInt(getAge()),getDepartment(),Double.parseDouble(getGPA()));
-                            if(sDatabase.addPerson(s))
+                            if(sDatabase.updatePerson(s))
                             {   
                                try {
                                     sDatabase.saveToFile();
@@ -45,15 +43,16 @@ public class AddStudent extends AddAndUpdatePanel{
                                     Logger.getLogger(AddStudent.class.getName()).log(Level.SEVERE, null, ex);
                                 }
                                 
-                                JOptionPane.showMessageDialog(null,"Student Added Successfully.");
+                                JOptionPane.showMessageDialog(null,"Student Updated Successfully.");
                             }
                             else
-                                JOptionPane.showMessageDialog(null,"Student Already Exist.");
+                                JOptionPane.showMessageDialog(null,"Failed To Update.");
                         }
                             
                             
                         }
                     });
+    }
     }
     
 }
