@@ -1,5 +1,7 @@
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -14,6 +16,13 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        Action enterAction = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                loginActionPerformed(null);
+            }
+        };
+        jPasswordField1.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), enterAction);
     }
 
     /**
