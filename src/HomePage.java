@@ -138,10 +138,7 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        AddStudent ad = new AddStudent();
-        ad.setVisible(true);
-//        ad.setLocationRelativeTo(null);// to make the frame in the middle of page
-        this.setVisible(false);
+            //For Add Student
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
