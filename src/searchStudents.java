@@ -1,5 +1,7 @@
 
 import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -35,6 +37,7 @@ public class searchStudents extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtSearch = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        btnUpdate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,6 +70,13 @@ public class searchStudents extends javax.swing.JFrame {
 
         jLabel2.setText("Search Student by ID or Name:");
 
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -85,8 +95,11 @@ public class searchStudents extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBack, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnSearch, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(btnSearch, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btnUpdate)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnBack)))))
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -106,7 +119,9 @@ public class searchStudents extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(btnSearch)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
-                .addComponent(btnBack)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBack)
+                    .addComponent(btnUpdate))
                 .addGap(33, 33, 33))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -204,6 +219,75 @@ public class searchStudents extends javax.swing.JFrame {
     this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+         int selectedRow = tblResults.getSelectedRow();
+
+    // check if a student row is selected
+    if (selectedRow == -1) {
+        JOptionPane.showMessageDialog(this, 
+            "Please select a student from the table first.", 
+            "No Selection", 
+            JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+
+    // get student ID from first column in table
+    String studentId = tblResults.getValueAt(selectedRow, 0).toString();
+
+    // open the UpdateStudent panel (no constructor change)
+    UpdateStudent updatePanel = new UpdateStudent();
+
+    // pre-fill the form using that student’s data
+    try {
+        StudentDatabase db = new StudentDatabase("Files/Students.txt");
+        Person p = db.getPersonById(studentId);
+        if (p instanceof Student s) {
+            // fill fields manually from AddAndUpdatePanel
+            java.lang.reflect.Field idField = AddAndUpdatePanel.class.getDeclaredField("id");
+            java.lang.reflect.Field nameField = AddAndUpdatePanel.class.getDeclaredField("name");
+            java.lang.reflect.Field ageField = AddAndUpdatePanel.class.getDeclaredField("age");
+            java.lang.reflect.Field departmentField = AddAndUpdatePanel.class.getDeclaredField("department");
+            java.lang.reflect.Field gpaField = AddAndUpdatePanel.class.getDeclaredField("GPA");
+            java.lang.reflect.Field maleField = AddAndUpdatePanel.class.getDeclaredField("male");
+            java.lang.reflect.Field femaleField = AddAndUpdatePanel.class.getDeclaredField("female");
+
+            idField.setAccessible(true);
+            nameField.setAccessible(true);
+            ageField.setAccessible(true);
+            departmentField.setAccessible(true);
+            gpaField.setAccessible(true);
+            maleField.setAccessible(true);
+            femaleField.setAccessible(true);
+
+            ((JTextField) idField.get(updatePanel)).setText(s.getId());
+            ((JTextField) nameField.get(updatePanel)).setText(s.getFullName());
+            ((JTextField) ageField.get(updatePanel)).setText(String.valueOf(s.getAge()));
+            ((JTextField) departmentField.get(updatePanel)).setText(s.getDepartment());
+            ((JTextField) gpaField.get(updatePanel)).setText(String.valueOf(s.getGpa()));
+            if (s.getGender().equalsIgnoreCase("male"))
+                ((JRadioButton) maleField.get(updatePanel)).setSelected(true);
+            else
+                ((JRadioButton) femaleField.get(updatePanel)).setSelected(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "Student not found!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error loading student data: " + e.getMessage());
+    }
+
+    // put the UpdateStudent panel in a JFrame
+    javax.swing.JFrame frame = new javax.swing.JFrame("Update Student");
+    frame.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
+    frame.getContentPane().add(updatePanel);
+    frame.pack();
+    frame.setLocationRelativeTo(null);
+    frame.setVisible(true);
+
+    this.dispose(); 
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -242,6 +326,7 @@ public class searchStudents extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
