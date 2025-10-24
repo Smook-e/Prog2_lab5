@@ -5,7 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -18,11 +20,12 @@ import javax.swing.JOptionPane;
  */
 public class UpdateStudent extends AddAndUpdatePanel {
     private StudentDatabase sDatabase;
-    public UpdateStudent()
+    private JFrame homeFrame;
+    public UpdateStudent(JFrame homeFrame)
     {
         super();
         try {
-            sDatabase=new StudentDatabase("\"C:\\\\Users\\\\HP\\\\OneDrive\\\\Documents\\\\GitHub\\\\Prog2_lab5\\\\Files\\\\Students.txt\"");
+            sDatabase=new StudentDatabase("C:\\Users\\HP\\OneDrive\\Documents\\GitHub\\Prog2_lab5\\Files\\Students.txt");
         } catch (FileNotFoundException ex) {
             Logger.getLogger(UpdateStudent.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -54,5 +57,3 @@ public class UpdateStudent extends AddAndUpdatePanel {
                     });
     }
     }
-    
-}

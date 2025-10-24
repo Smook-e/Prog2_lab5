@@ -20,7 +20,8 @@ import javax.swing.SwingUtilities;
  */
 public class AddStudent extends AddAndUpdatePanel{
     private StudentDatabase sDatabase;
-    public AddStudent()
+    private JFrame homeFrame;
+    public AddStudent(JFrame homeFrame)
     {
         super();
         try {
@@ -57,3 +58,4 @@ public class AddStudent extends AddAndUpdatePanel{
     }
     
 }
+ 

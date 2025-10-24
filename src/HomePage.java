@@ -119,7 +119,22 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        //For Update Student
+        JFrame frame= new JFrame("Update Student");
+                 UpdateStudent panel = new UpdateStudent(this);
+                 frame.setContentPane(panel);
+                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                 frame.addWindowListener(new java.awt.event.WindowAdapter()
+                 {
+                     @Override
+                     public void windowClosing(java.awt.event.WindowEvent e)
+                     {
+                        HomePage.this.setVisible(true);
+                        frame.dispose();
+                     }
+                 });
+                 frame.pack();
+                 frame.setLocationRelativeTo(null);
+                 frame.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -130,7 +145,21 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        //For Add Student
+        JFrame frame= new JFrame("Add Student");
+                 AddStudent panel = new AddStudent(this);
+                 frame.setContentPane(panel);
+                 frame.addWindowListener(new java.awt.event.WindowAdapter()
+                 {
+                     @Override
+                     public void windowClosing(java.awt.event.WindowEvent e)
+                     {
+                        HomePage.this.setVisible(true);
+                        frame.dispose();
+                     }
+                 });
+                 frame.pack();
+                 frame.setLocationRelativeTo(null);
+                 frame.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
