@@ -14,6 +14,7 @@ public class viewStudents extends javax.swing.JFrame {
      */
     public viewStudents() {
         initComponents();
+        btnLoadStudentsActionPerformed(null);
     }
 
     /**
