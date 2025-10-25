@@ -25,7 +25,7 @@ public class AddStudent extends AddAndUpdatePanel{
     {
         super();
         try {
-            sDatabase = new StudentDatabase("C:\\Users\\HP\\OneDrive\\Documents\\GitHub\\Prog2_lab5\\Files\\Students.txt");
+            sDatabase = new StudentDatabase("Files\\Students.txt");
         } catch (FileNotFoundException ex) {
             Logger.getLogger(AddStudent.class.getName()).log(Level.SEVERE, null, ex);
         }

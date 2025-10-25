@@ -25,7 +25,7 @@ public class UpdateStudent extends AddAndUpdatePanel {
     {
         super();
         try {
-            sDatabase=new StudentDatabase("C:\\Users\\HP\\OneDrive\\Documents\\GitHub\\Prog2_lab5\\Files\\Students.txt");
+            sDatabase=new StudentDatabase("Files\\Students.txt");
         } catch (FileNotFoundException ex) {
             Logger.getLogger(UpdateStudent.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -47,6 +47,12 @@ public class UpdateStudent extends AddAndUpdatePanel {
                                 }
                                 
                                 JOptionPane.showMessageDialog(null,"Student Updated Successfully.");
+                                 // After success — go back to search panel
+                javax.swing.SwingUtilities.getWindowAncestor(save).dispose(); // close update window
+                searchStudents searchWindow = new searchStudents();
+                searchWindow.setVisible(true);
+                searchWindow.setLocationRelativeTo(null);
+
                             }
                             else
                                 JOptionPane.showMessageDialog(null,"Failed To Update.");
@@ -54,6 +60,6 @@ public class UpdateStudent extends AddAndUpdatePanel {
                             
                             
                         }
-                    });
+                    })  ;
     }
     }
