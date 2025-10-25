@@ -121,8 +121,8 @@ public class viewStudents extends javax.swing.JFrame {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         HomePage home = new HomePage();
-        home.setVisible(true);
         home.setLocationRelativeTo(null);
+        home.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
