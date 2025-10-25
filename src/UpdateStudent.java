@@ -5,7 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -18,7 +20,8 @@ import javax.swing.JOptionPane;
  */
 public class UpdateStudent extends AddAndUpdatePanel {
     private StudentDatabase sDatabase;
-    public UpdateStudent()
+    private JFrame homeFrame;
+    public UpdateStudent(JFrame homeFrame)
     {
         super();
         try {
@@ -60,5 +63,3 @@ public class UpdateStudent extends AddAndUpdatePanel {
                     })  ;
     }
     }
-    
-
