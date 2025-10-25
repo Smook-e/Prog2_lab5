@@ -29,6 +29,7 @@ public class viewStudents extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblStudents = new javax.swing.JTable();
         btnLoadStudents = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,21 +53,33 @@ public class viewStudents extends javax.swing.JFrame {
             }
         });
 
+        btnBack.setText("Back to Home");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnLoadStudents))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLoadStudents)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnBack)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnLoadStudents))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLoadStudents)
+                    .addComponent(btnBack)))
         );
 
         pack();
@@ -76,7 +89,7 @@ public class viewStudents extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
         // Load data from file using your existing backend
-        StudentDatabase db = new StudentDatabase("Files/Students.txt"); // file name used by your group
+        StudentDatabase db = new StudentDatabase("Files/Students.txt"); 
         java.util.ArrayList<Person> persons = db.getPersons();
 
         // Create table model
@@ -104,6 +117,14 @@ public class viewStudents extends javax.swing.JFrame {
         javax.swing.JOptionPane.showMessageDialog(this, "Error loading students: " + e.getMessage());
     }
     }//GEN-LAST:event_btnLoadStudentsActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        HomePage home = new HomePage();
+        home.setVisible(true);
+        home.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,6 +163,7 @@ public class viewStudents extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnLoadStudents;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblStudents;

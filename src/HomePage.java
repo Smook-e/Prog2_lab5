@@ -118,27 +118,16 @@ public class HomePage extends javax.swing.JFrame {
         //For View Student
         viewStudents view = new viewStudents();
         view.setVisible(true);
-        view.setLocationRelativeTo(null);// to make the frame in the middle of page
-        this.setVisible(false);    
+        view.setLocationRelativeTo(null);
+           
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        JFrame frame= new JFrame("Update Student");
-                 UpdateStudent panel = new UpdateStudent(this);
-                 frame.setContentPane(panel);
-                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                 frame.addWindowListener(new java.awt.event.WindowAdapter()
-                 {
-                     @Override
-                     public void windowClosing(java.awt.event.WindowEvent e)
-                     {
-                        HomePage.this.setVisible(true);
-                        frame.dispose();
-                     }
-                 });
-                 frame.pack();
-                 frame.setLocationRelativeTo(null);
-                 frame.setVisible(true);
+       //For search Student
+        searchStudents search = new searchStudents();
+        search.setVisible(true);
+        search.setLocationRelativeTo(null);
+        this.setVisible(false); 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
