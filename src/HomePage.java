@@ -136,7 +136,12 @@ public class HomePage extends javax.swing.JFrame {
         ds.setVisible(true);
         ds.setLocationRelativeTo(null);// to make the frame in the middle of page
         this.setVisible(false);
-//
+//        ds.addWindowListener(new java.awt.event.WindowAdapter() {
+//            public void windowClosing(java.awt.event.WindowEvent evt) {
+//                ds.dispose();
+//                HomePage.this.setVisible(true);
+//            }
+//        });
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

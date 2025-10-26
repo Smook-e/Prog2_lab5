@@ -3,3 +3,5 @@
 10345,Maged,Male,22,Business,3.0
 10091,Malak,Female,20,Medical,3.1
 10688,Malak,female,23,Computer,3.1
+10950,John,male,30,Engineering,3.5
+10201,David,male,24,Mechanical,3.2

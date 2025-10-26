@@ -1,4 +1,5 @@
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
@@ -47,9 +48,14 @@ public class AddStudent extends AddAndUpdatePanel{
                                 }
                                 
                                 JOptionPane.showMessageDialog(null,"Student Added Successfully.");
+                                Window parentWindow = SwingUtilities.getWindowAncestor(AddStudent.this);
+                                parentWindow.dispose();
+                               HomePage homePage = new HomePage();
+                               homePage.setVisible(true);
+                                homePage.setLocationRelativeTo(null);
                             }
                             else
-                                JOptionPane.showMessageDialog(null,"Student Already Exist.");
+                                JOptionPane.showMessageDialog(null,"Student Already Exist. Please Try Again.");
                         }
                             
                             

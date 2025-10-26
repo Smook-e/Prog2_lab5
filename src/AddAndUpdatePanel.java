@@ -64,7 +64,7 @@ public class AddAndUpdatePanel extends JPanel {
         }
         try
         {
-            int numID=Integer.parseInt(id.getText());
+            String numID = id.getText();
             int numAge=Integer.parseInt(age.getText());
             if((numAge<11)||(numAge>100))
             {
@@ -78,7 +78,7 @@ public class AddAndUpdatePanel extends JPanel {
             
         }catch(NumberFormatException e)
         {
-             JOptionPane.showMessageDialog(null,"Please enter valid ID , Age and GPA !","Validation Error",JOptionPane.ERROR_MESSAGE);
+             JOptionPane.showMessageDialog(null,"Please enter valid Age and/or GPA !","Validation Error",JOptionPane.ERROR_MESSAGE);
             return false;
         }
         catch(IllegalArgumentException e)
