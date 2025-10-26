@@ -151,13 +151,13 @@ public class searchStudents extends javax.swing.JFrame {
         StudentDatabase db = new StudentDatabase("Files/Students.txt");
         Person result = null;
 
-        // inpute type
+        
         if (key.matches("\\d+")) {
-            // Numeric only → treat as ID
+            // Number only: ID
             result = db.getPersonById(key);
 
         } else if (key.matches("[a-zA-Z\\s]+")) {
-            // Letters/spaces only → treat as name
+            // Letters/spaces : name
             result = db.getPersonByName(key);
 
         } else {
@@ -184,7 +184,7 @@ public class searchStudents extends javax.swing.JFrame {
                 s.getGpa()
             };
             model.addRow(row);
-            tblResults.setModel(model);//show result in table
+            tblResults.setModel(model);
             tblResults.setVisible(true);
             tblResults.repaint();
 
@@ -223,7 +223,6 @@ public class searchStudents extends javax.swing.JFrame {
         // TODO add your handling code here:
          int selectedRow = tblResults.getSelectedRow();
 
-    // check if a student row is selected
     if (selectedRow == -1) {
         JOptionPane.showMessageDialog(this, 
             "Please select a student from the table first.", 
@@ -232,18 +231,15 @@ public class searchStudents extends javax.swing.JFrame {
         return;
     }
 
-    // get student ID from first column in table
+    // get ID from column1 in table
     String studentId = tblResults.getValueAt(selectedRow, 0).toString();
-
-    // open the UpdateStudent panel (no constructor change)
     UpdateStudent updatePanel = new UpdateStudent();
 
-    // pre-fill the form using that student’s data
+    // fill using student’s data
     try {
         StudentDatabase db = new StudentDatabase("Files/Students.txt");
         Person p = db.getPersonById(studentId);
         if (p instanceof Student s) {
-            // fill fields manually from AddAndUpdatePanel
             java.lang.reflect.Field idField = AddAndUpdatePanel.class.getDeclaredField("id");
             java.lang.reflect.Field nameField = AddAndUpdatePanel.class.getDeclaredField("name");
             java.lang.reflect.Field ageField = AddAndUpdatePanel.class.getDeclaredField("age");
@@ -276,8 +272,6 @@ public class searchStudents extends javax.swing.JFrame {
     } catch (Exception e) {
         JOptionPane.showMessageDialog(this, "Error loading student data: " + e.getMessage());
     }
-
-    // put the UpdateStudent panel in a JFrame
     javax.swing.JFrame frame = new javax.swing.JFrame("Update Student");
     frame.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
     frame.getContentPane().add(updatePanel);

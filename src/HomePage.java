@@ -115,7 +115,6 @@ public class HomePage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        //For View Student
         viewStudents view = new viewStudents();
         view.setVisible(true);
         view.setLocationRelativeTo(null);
@@ -134,7 +133,7 @@ public class HomePage extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         DeleteStudent ds = new DeleteStudent();
         ds.setVisible(true);
-        ds.setLocationRelativeTo(null);// to make the frame in the middle of page
+        ds.setLocationRelativeTo(null);
         this.setVisible(false);
 //        ds.addWindowListener(new java.awt.event.WindowAdapter() {
 //            public void windowClosing(java.awt.event.WindowEvent evt) {

@@ -88,11 +88,9 @@ public class viewStudents extends javax.swing.JFrame {
     private void btnLoadStudentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadStudentsActionPerformed
         // TODO add your handling code here:
         try {
-        // Load data from file using your existing backend
+ 
         StudentDatabase db = new StudentDatabase("Files/Students.txt"); 
         java.util.ArrayList<Person> persons = db.getPersons();
-
-        // Create table model
         String[] columns = {"ID", "Full Name", "Gender", "Age", "Department", "GPA"};
         javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel(columns, 0);
 
