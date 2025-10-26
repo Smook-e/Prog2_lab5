@@ -48,8 +48,7 @@ public class AddStudent extends AddAndUpdatePanel{
                                 }
                                 
                                 JOptionPane.showMessageDialog(null,"Student Added Successfully.");
-                                Window parentWindow = SwingUtilities.getWindowAncestor(AddStudent.this);
-                                parentWindow.dispose();
+                               homeFrame.dispose();
                                HomePage homePage = new HomePage();
                                homePage.setVisible(true);
                                 homePage.setLocationRelativeTo(null);

@@ -146,7 +146,7 @@ public class HomePage extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         JFrame frame= new JFrame("Add Student");
-                 AddStudent panel = new AddStudent(this);
+                 AddStudent panel = new AddStudent(frame);
                  frame.setContentPane(panel);
                  frame.addWindowListener(new java.awt.event.WindowAdapter()
                  {
