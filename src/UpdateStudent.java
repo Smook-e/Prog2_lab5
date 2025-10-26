@@ -1,13 +1,10 @@
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -20,8 +17,7 @@ import javax.swing.SwingUtilities;
  */
 public class UpdateStudent extends AddAndUpdatePanel {
     private StudentDatabase sDatabase;
-    private JFrame homeFrame;
-    public UpdateStudent(JFrame homeFrame)
+    public UpdateStudent()
     {
         super();
         try {
