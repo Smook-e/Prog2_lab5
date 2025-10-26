@@ -56,7 +56,7 @@ public class AddAndUpdatePanel extends JPanel {
     }
     public boolean validateInput()
     {
-        if(id.getText().isEmpty()||name.getText().isEmpty()||department.getText().isEmpty()
+        if(name.getText().isEmpty()||department.getText().isEmpty()
                 ||GPA.getText().isEmpty()||((!male.isSelected())&&(!female.isSelected())))
         {
             JOptionPane.showMessageDialog(null,"Please fill all form!","Error",JOptionPane.ERROR_MESSAGE);

@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Student student1 = new Student( "Malak", "Female", 20, "Medical", 3.1);
+
 
         StudentDatabase database = new StudentDatabase("Files\\Students.txt");
 

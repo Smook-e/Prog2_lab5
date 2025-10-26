@@ -6,14 +6,13 @@ public class Student extends Person {
     public Student(String id, String fullName, String gender, int age, String department,  double gpa) {
         super(fullName, age, department, gender);
         this.id = id;
+        if(id.isEmpty() || id == null){
+            Random random = new Random();
+            this.id = String.valueOf(random.nextInt(1000) + 10000);
+        }
         this.gpa = gpa;
     }
-    public Student( String fullName, String gender, int age, String department,  double gpa) {
-        super(fullName, age, department, gender);
-        Random random = new Random();
-        this.id = String.valueOf(random.nextInt(1000) + 10000);
-        this.gpa = gpa;
-    }
+
     @Override
     public String toString() {
         return id + "," + super.toString() + "," + gpa;
