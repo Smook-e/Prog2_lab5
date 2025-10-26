@@ -44,10 +44,10 @@ public class UpdateStudent extends AddAndUpdatePanel {
                                 
                                 JOptionPane.showMessageDialog(null,"Student Updated Successfully.");
                                  // After success — go back to search panel
-                javax.swing.SwingUtilities.getWindowAncestor(save).dispose(); // close update window
-                searchStudents searchWindow = new searchStudents();
-                searchWindow.setVisible(true);
-                searchWindow.setLocationRelativeTo(null);
+                                javax.swing.SwingUtilities.getWindowAncestor(save).dispose(); // close update window
+                                searchStudents searchWindow = new searchStudents();
+                                searchWindow.setVisible(true);
+                                searchWindow.setLocationRelativeTo(null);
 
                             }
                             else

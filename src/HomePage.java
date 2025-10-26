@@ -119,6 +119,7 @@ public class HomePage extends javax.swing.JFrame {
         viewStudents view = new viewStudents();
         view.setVisible(true);
         view.setLocationRelativeTo(null);
+        this.setVisible(false);
            
     }//GEN-LAST:event_jButton3ActionPerformed
 

@@ -2,4 +2,5 @@
 12345,Ahmed,Male,21,Engineering,3.7
 10345,Maged,Male,22,Business,3.0
 10091,Malak,Female,20,Medical,3.1
-10688,Malak,Female,21,Computer,3.1
+10688,Malak,female,23,Computer,3.1
+15623,john,male,20,Engineering,3.7
