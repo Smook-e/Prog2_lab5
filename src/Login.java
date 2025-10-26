@@ -123,7 +123,7 @@ public class Login extends javax.swing.JFrame {
         if (loginUsers.userExists(username+','+password)||username.equals("abc")&&password.equals("123")) {
             HomePage h = new HomePage();
             h.setVisible(true);
-            h.setLocationRelativeTo(null);// to make the frame in the middle of page
+            h.setLocationRelativeTo(null);
             this.setVisible(false);
         } 
 
