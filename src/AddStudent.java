@@ -19,7 +19,7 @@ import javax.swing.SwingUtilities;
  *
  * @author HP
  */
-public class AddStudent extends AddAndUpdatePanel{
+public class ddStudent extends AddAndUpdatePanel{
     private StudentDatabase sDatabase;
     private JFrame homeFrame;
     public AddStudent(JFrame homeFrame)
