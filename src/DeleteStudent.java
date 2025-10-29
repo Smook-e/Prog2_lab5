@@ -132,7 +132,7 @@ public class DeleteStudent extends javax.swing.JFrame {
     }
     int clickedRow = -1;
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        clickedRow = jTable1.getSelectedRow();
+        clickedRow = jTable1.getSelectedRow()    ;
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
